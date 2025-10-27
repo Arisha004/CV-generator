@@ -1,0 +1,1 @@
+cv.php db.php delete.php detail.php detail2.php index.html insert.php list.php style.css
