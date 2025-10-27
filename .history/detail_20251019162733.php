@@ -1,0 +1,62 @@
+<?php
+include 'db.php';
+$id=$_GET['id'];
+$sql="select * from person where id='$id'";
+$result=$conn->query($sql);
+
+
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <link rel="stylesheet" href="style.css">
+  
+    
+</head>
+<body>
+    <h2>Detail list of person with <?php echo  $id; ?></h1>
+   
+    <p><a href="cv.php?id=<?php echo $id ; ?>" class="btn">Generate CV</a></p>
+
+    <p><a href="list.php"> Go back to list page</a></p>
+    <?php
+    if($result->num_rows>0){
+echo "<table border='1' cellpadding='10'>";
+  echo   "<tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>Address</th>
+    <th>Education</th>
+    <th>Experience</th>
+    <th>Skills</th>
+ 
+    
+    
+
+while($row=$result->fetch_assoc()){
+  
+    echo "ID".$row["id"]."</td>";
+    echo "NAME".$row["name"]."</td>";
+    echo "EMAIL".$row["email"]."</td>";
+    echo "PHONE".$row["phone"]."</td>";
+    echo "ADDRESS".$row["address"]."</td>";
+    echo "EDUCATION".$row["education"]."</td>";
+    echo "EXPERIENCE".$row["experience"]."</td>";
+    echo "SKILLS".$row["skills"]."</td>";
+ 
+    
+}
+
+    }
+    else{
+        echo "no records found";
+    }
+
+?>
+</body>
+</html>
