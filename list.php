@@ -35,7 +35,7 @@ while($row=$result->fetch_assoc()){
     echo "<td>".$row["id"]."</td>";
     echo "<td>".$row["name"]."</td>";
     echo "<td>".$row["email"]."</td>";
-  
+    echo "<td><a href='delete.php?id=$row[id]'>More Info </a></td>";
     echo "<td><a href='detail2.php?id=$row[id]'>More Info </a></td>";
     echo "</tr>";
     
